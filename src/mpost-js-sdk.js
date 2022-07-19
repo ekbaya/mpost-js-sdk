@@ -213,10 +213,10 @@ class Mpost {
         return this.api.send("POST", "v4/users/login/", params);
     }
 
-  /**
-  * Create new Delivery Request
-  * @return {Promise}
-  */
+    /**
+    * Create new Delivery Request
+    * @return {Promise}
+    */
     createDeliveryRequest(params = {}) {
         if (!params.pickup_address) {
             return rejectValidation("collection", "Pick Up Address");
@@ -224,12 +224,23 @@ class Mpost {
         return this.api.send("POST", "v4/delivery-requestd/", params);
     }
 
-   /**
-   * Get a list of delivary requests
-   * @return {Promise}
-   */
+    /**
+    * Get a list of delivary requests
+    * @return {Promise}
+    */
     getDeliveryRequests(params = {}) {
         return this.api.send("GET", "v4/delivery-requests/", params);
+    }
+
+    /**
+  * Get Distance and Delivery Cost
+  * @return {Promise}
+  */
+    calculateDistance(params = {}) {
+        if (!params.pickup_address) {
+            return rejectValidation("collection", "Pick Up Address");
+        }
+        return this.api.send("POST", "v4/delivery-requests/distance/", params);
     }
 
 }

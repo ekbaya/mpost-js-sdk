@@ -95,6 +95,9 @@ respectively.
 Most of the calls take an object as the only parameter but please refer to the
 API documentation to tune the query as intended.
 
+
+Get Delivery Requests
+
 ```js
 mpost
   .getDeliveryRequests({
@@ -108,6 +111,8 @@ mpost
     // TODO Handle the error
   });
 ```
+
+Craete Delivery Request
 
 ```js
 mpost
@@ -128,6 +133,26 @@ mpost
     recipient_mobile: "0712345678",
     item_type: "Test",
     pickup_time: "2022-02-02 11:11:00"
+  })
+  .then(data => {
+    // TODO Handle data
+  })
+  .catch(error => {
+    // TODO Handle the error
+  });
+```
+Calculate Distance and Delivery Cost
+```js
+mpost
+  .calculateDistance({
+    pickup_address: {
+        latitude: -0.9534506,
+        longitude: 37.0820681
+    },
+    delivery_address: {
+        latitude: -1.046594,
+        longitude: 37.060197
+    }
   })
   .then(data => {
     // TODO Handle data
