@@ -1,4 +1,4 @@
-# mpost-js-sdk
+# Mpost JavaScript SDK
 
 This SDK aims to help the development of integrations with
 [Mpost](https://mpost.co.ke/) that use JavaScript, providing an easy
