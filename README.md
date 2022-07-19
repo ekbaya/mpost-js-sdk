@@ -84,3 +84,27 @@ const mpost = new Mpost({
   token: "<OAuth2 access token>"
 });
 ```
+
+#### Making requests
+
+You can now use the various methods from the SDK to create delivery requests, fetch delivery requests
+and other data. Following the Promises notation, you should use
+`.then()`/`.catch()` to handle the successful and failed requests,
+respectively.
+
+Most of the calls take an object as the only parameter but please refer to the
+API documentation to tune the query as intended.
+
+```js
+mpost
+  .getDeliveryRequests({
+    limit: 20,
+    page: 1
+  })
+  .then(data => {
+    // TODO Handle data
+  })
+  .catch(error => {
+    // TODO Handle the error
+  });
+```
