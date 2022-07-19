@@ -1,0 +1,22 @@
+{
+  "name": "mpost-js-sdk",
+  "version": "1.0.0",
+  "description": "Mpost Javascript SDK",
+  "main": "./dist/mpost-js-sdk.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/ekbaya/mpost-js-sdk.git"
+  },
+  "author": "Elias Baya",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "is-url": "^1.2.4",
+    "proper-url-join": "^2.1.1",
+    "query-string": "^7.1.1",
+    "simple-oauth2": "^4.3.0"
+  }
+}
