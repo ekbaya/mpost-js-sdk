@@ -108,3 +108,31 @@ mpost
     // TODO Handle the error
   });
 ```
+
+```js
+mpost
+  .createDeliveryRequest({
+    pickup_address: {
+        latitude: 37.785834,
+        longitude: -122.406417,
+        address: "Globe Round About",
+        detailed_address: "Sunrays House, Near Globe Cinema Roundabout, Nairobi City"
+    },
+    delivery_address: {
+        latitude: 40.659569,
+        longitude: -73.933783,
+        address: "Globe Round About",
+        detailed_address: "Sunrays House, Near Globe Cinema Roundabout, Nairobi City"
+    },
+    recipient_name: "",
+    recipient_mobile: "0712345678",
+    item_type: "Test",
+    pickup_time: "2022-02-02 11:11:00"
+  })
+  .then(data => {
+    // TODO Handle data
+  })
+  .catch(error => {
+    // TODO Handle the error
+  });
+```
