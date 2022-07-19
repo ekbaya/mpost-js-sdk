@@ -11,7 +11,7 @@
     "url": "github.com/ekbaya/mpost-js-sdk.git"
   },
   "author": "Elias Baya",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.27.2",
     "is-url": "^1.2.4",
