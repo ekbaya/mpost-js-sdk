@@ -124,7 +124,7 @@ mpost
         address: "Globe Round About",
         detailed_address: "Sunrays House, Near Globe Cinema Roundabout, Nairobi City"
     },
-    recipient_name: "",
+    recipient_name: "Elias Baya",
     recipient_mobile: "0712345678",
     item_type: "Test",
     pickup_time: "2022-02-02 11:11:00"
