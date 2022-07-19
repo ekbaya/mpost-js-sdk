@@ -161,3 +161,16 @@ mpost
     // TODO Handle the error
   });
 ```
+
+## Available methods
+
+### Authentication
+
+- `makeAuthorizationURL()`
+- `getToken()`
+
+### Delivery
+
+- `getDeliveryRequests(queryObject)`
+- `createDeliveryRequest(queryObject)`
+- `calculateDistance(queryObject)`
