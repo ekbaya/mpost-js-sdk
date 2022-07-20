@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Documentation Index</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Documentation</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="APICall.html">APICall</a></li><li><a href="Mpost.html">Mpost</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#rejectValidation">rejectValidation</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+    <section class="readme-section">
+        <article><h1>Mpost JavaScript SDK</h1>
+<p>This SDK aims to help the development of integrations with
+<a href="https://mpost.co.ke/">Mpost</a> that use JavaScript, providing an easy
+interface to communicate with
+<a href="https://mpost.co.ke/">Mpost's REST API</a>.</p>
+<h2>Requirements</h2>
+<p>To use this SDK, you will need:</p>
+<ul>
+<li><a href="https://nodejs.org/">Node.js <strong>v6.3.0 or above</strong></a></li>
+</ul>
+<p>Node installation will include <a href="https://www.npmjs.com/">NPM</a>, which is
+responsible for dependency management.</p>
+<h2>Installation</h2>
+<h3>Node.js</h3>
+<p><code>npm install @mpost/mpost-js-sdk</code></p>
+<p><code>import Mpost from '@mpost/mpost-js-sdk';</code></p>
+<h2>Usage</h2>
+<p>This SDK relies heavily on <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promises</a>,
+making it easier to handle the asynchronous requests made to the API. The SDK
+provides a <code>Mpost</code> object containing several methods which map to the
+calls and parameters described in
+<a href="https://mpost.co.ke/">Mpost's API documentation</a>.</p>
+<p>The following snippet is a generic example of how to use the SDK. If you need
+details for a specific module, refer to the
+<a href="https://github.com/ekbaya/mpost-js-sdk/tree/master/samples">samples folder</a>.</p>
+<p>Before executing any request, you need to authorize the calls to the API:</p>
+<h4>Using a permanent token</h4>
+<pre class="prettyprint source lang-js"><code>const mpost = new Mpost({
+  baseURL: &quot;https//portal.mpost.com/api/&quot;,
+  permanentToken: &quot;&lt;token>&quot;,
+});
+</code></pre>
+<h4>Using OAuth2</h4>
+<ol>
+<li>Call the constructor with your configuration</li>
+</ol>
+<pre class="prettyprint source lang-js"><code>const mpost = new Mpost({
+  baseURL: &quot;https://portal.mpost.com/api/&quot;,
+  clientId: &quot;&lt;your OAuth2 client id>&quot;,
+  clientSecret: &quot;&lt;your OAuth2 client secret>&quot;,
+  redirectUri: &quot;&lt;url where user will be redirected after authenticating>&quot;
+});
+</code></pre>
+<ol start="2">
+<li>Create an authorization URL, login and get one-time authorization code</li>
+</ol>
+<pre class="prettyprint source lang-js"><code>const authorizationURL = mpost.makeAuthorizationURL();
+</code></pre>
+<ol start="3">
+<li>Exchange code for an access token</li>
+</ol>
+<pre class="prettyprint source lang-js"><code>mpost.getToken(code);
+</code></pre>
+<p>If you already have an access token, you can also initialize Bynder with the
+token directly:</p>
+<pre class="prettyprint source lang-js"><code>const mpost = new Mpost({
+  baseURL: &quot;http://api-url.mpost.io/api/&quot;,
+  clientId: &quot;&lt;your OAuth2 client id>&quot;,
+  clientSecret: &quot;&lt;your OAuth2 client secret>&quot;,
+  redirectUri: &quot;&lt;url where user will be redirected after authenticating>&quot;,
+  token: &quot;&lt;OAuth2 access token>&quot;
+});
+</code></pre>
+<h4>Making requests</h4>
+<p>You can now use the various methods from the SDK to create delivery requests, fetch delivery requests
+and other data. Following the Promises notation, you should use
+<code>.then()</code>/<code>.catch()</code> to handle the successful and failed requests,
+respectively.</p>
+<p>Most of the calls take an object as the only parameter but please refer to the
+API documentation to tune the query as intended.</p>
+<p>Get Delivery Requests</p>
+<pre class="prettyprint source lang-js"><code>mpost
+  .getDeliveryRequests({
+    limit: 20,
+    page: 1
+  })
+  .then(data => {
+    // TODO Handle data
+  })
+  .catch(error => {
+    // TODO Handle the error
+  });
+</code></pre>
+<p>Craete Delivery Request</p>
+<pre class="prettyprint source lang-js"><code>mpost
+  .createDeliveryRequest({
+    pickup_address: {
+        latitude: 37.785834,
+        longitude: -122.406417,
+        address: &quot;Globe Round About&quot;,
+        detailed_address: &quot;Sunrays House, Near Globe Cinema Roundabout, Nairobi City&quot;
+    },
+    delivery_address: {
+        latitude: 40.659569,
+        longitude: -73.933783,
+        address: &quot;Globe Round About&quot;,
+        detailed_address: &quot;Sunrays House, Near Globe Cinema Roundabout, Nairobi City&quot;
+    },
+    recipient_name: &quot;Elias Baya&quot;,
+    recipient_mobile: &quot;0712345678&quot;,
+    item_type: &quot;Test&quot;,
+    pickup_time: &quot;2022-02-02 11:11:00&quot;
+  })
+  .then(data => {
+    // TODO Handle data
+  })
+  .catch(error => {
+    // TODO Handle the error
+  });
+</code></pre>
+<p>Calculate Distance and Delivery Cost</p>
+<pre class="prettyprint source lang-js"><code>mpost
+  .calculateDistance({
+    pickup_address: {
+        latitude: -0.9534506,
+        longitude: 37.0820681
+    },
+    delivery_address: {
+        latitude: -1.046594,
+        longitude: 37.060197
+    }
+  })
+  .then(data => {
+    // TODO Handle data
+  })
+  .catch(error => {
+    // TODO Handle the error
+  });
+</code></pre>
+<h2>Available methods</h2>
+<h3>Authentication</h3>
+<ul>
+<li><code>makeAuthorizationURL()</code></li>
+<li><code>getToken()</code></li>
+</ul>
+<h3>Delivery</h3>
+<ul>
+<li><code>getDeliveryRequests(queryObject)</code></li>
+<li><code>createDeliveryRequest(queryObject)</code></li>
+<li><code>calculateDistance(queryObject)</code></li>
+</ul>
+<h2>Contribute to the SDK</h2>
+<p>If you wish to contribute to this repository and further extend the API coverage in the SDK, here
+are the steps necessary to prepare your environment:</p>
+<ol>
+<li>Clone the repository</li>
+<li>In the root folder, run <code>yarn install</code> to install all of the dependencies.</li>
+<li>Create a <code>secret.json</code> file with the following structure:</li>
+</ol>
+<pre class="prettyprint source lang-json"><code>{
+  &quot;baseURL&quot;: &quot;http://api-url.bynder.io/api/&quot;,
+  &quot;clientId&quot;: &quot;&lt;your OAuth2 client id>&quot;,
+  &quot;clientSecret&quot;: &quot;&lt;your OAuth2 client secret>&quot;,
+  &quot;redirectUri&quot;: &quot;&lt;url where user will be redirected after authenticating>&quot;
+}
+</code></pre>
+<ol start="4">
+<li>The following gulp tasks are available:</li>
+</ol>
+<ul>
+<li><code>gulp lint</code> - Run ESlint and check the code.</li>
+<li><code>gulp build</code> - Run webpack to bundle the code in order to run in a browser.</li>
+<li><code>gulp babel</code> - Run Babel to create a folder 'dist' with ES2015 compatible code.</li>
+<li><code>gulp doc</code> - Run JSDoc to create a 'doc' folder with automatically generated documentation for the source code.</li>
+<li><code>gulp webserver</code> - Deploy a web server from the root folder at
+<code>localhost:8080</code> to run the html samples (in order to avoid CORS problems).</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a>
+	
+		on July 20th 2022, 4:48:34 pm
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

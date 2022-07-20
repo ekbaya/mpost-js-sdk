@@ -1,4 +1,4 @@
-// import Mpost from '../src/mpost-js-sdk.js';
+// import Mpost from '../dist/mpost-js-sdk.js';
 // import configs from '../secret.json';
 
 // const mpost = new Mpost(configs);

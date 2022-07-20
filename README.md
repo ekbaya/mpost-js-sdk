@@ -181,7 +181,7 @@ If you wish to contribute to this repository and further extend the API coverage
 are the steps necessary to prepare your environment:
 
 1. Clone the repository
-2. In the root folder, run `yarn install` to install all of the dependencies.
+2. In the root folder, run `npm install` to install all of the dependencies.
 3. Create a `secret.json` file with the following structure:
 
 ```json
