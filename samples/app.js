@@ -1,4 +1,8 @@
-﻿//javascript.js
+// import Mpost from '../src/mpost-js-sdk.js';
+// import configs from '../secret.json';
+
+// const mpost = new Mpost(configs);
+
 //set map options
 var myLatLng = { lat: -0.023559, lng: 37.906193 };
 var mapOptions = {
@@ -61,7 +65,7 @@ var options = {
     types: ['address'],
     bounds: new google.maps.LatLngBounds(
         new google.maps.LatLng(-0.023559, 37.906193)
-      )
+    )
 }
 
 var input1 = document.getElementById("from");

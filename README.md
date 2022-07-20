@@ -174,3 +174,30 @@ mpost
 - `getDeliveryRequests(queryObject)`
 - `createDeliveryRequest(queryObject)`
 - `calculateDistance(queryObject)`
+
+## Contribute to the SDK
+
+If you wish to contribute to this repository and further extend the API coverage in the SDK, here
+are the steps necessary to prepare your environment:
+
+1. Clone the repository
+2. In the root folder, run `yarn install` to install all of the dependencies.
+3. Create a `secret.json` file with the following structure:
+
+```json
+{
+  "baseURL": "http://api-url.bynder.io/api/",
+  "clientId": "<your OAuth2 client id>",
+  "clientSecret": "<your OAuth2 client secret>",
+  "redirectUri": "<url where user will be redirected after authenticating>"
+}
+```
+
+4. The following gulp tasks are available:
+
+- `gulp lint` - Run ESlint and check the code.
+- `gulp build` - Run webpack to bundle the code in order to run in a browser.
+- `gulp babel` - Run Babel to create a folder 'dist' with ES2015 compatible code.
+- `gulp doc` - Run JSDoc to create a 'doc' folder with automatically generated documentation for the source code.
+- `gulp webserver` - Deploy a web server from the root folder at
+  `localhost:8080` to run the html samples (in order to avoid CORS problems).
