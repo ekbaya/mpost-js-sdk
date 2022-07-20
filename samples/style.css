@@ -27,10 +27,19 @@ body {
   .jumbotron p {
     text-align: center;
   }
-  
+  .buttons-distance-proceed button {
+    padding: 1em;
+    border-radius: 3px;
+    font-size: 1em;
+    background-color: #5bc0de;
+    color: #fff;
+    width: 200px;
+    margin-right: 50px;
+    border: none;
+
+  }
   /*map*/
   #googleMap {
-    width: 80%;
     height: 400px;
     margin: 10px auto;
   }
@@ -44,4 +53,43 @@ body {
   
   #mode {
     color: black;
+  }
+
+  .form-horizontal{
+    padding: 1em;
+  }
+  .form-horizontal 
+  .form-group {
+    display: flex;
+  }
+  .form-horizontal .form-group input {
+    margin-left: 0.5em;
+    height: 45px;
+  }
+  .form-horizontal .form-group label i {
+    font-size: 1.3em;
+  }
+  .cost-card{
+    padding: 1em;
+    border: 0.2px solid grey;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  .distance-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .distance-value{
+    margin-left: 20px;
+    width: 300px;
+    height: 30px;
+    border: 0.2px solid grey;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }

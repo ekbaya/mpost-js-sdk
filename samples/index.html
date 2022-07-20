@@ -14,40 +14,79 @@
 
 <body>
     <div class="jumbotron">
-        <div class="container-fluid">
-            <h1>Find The Distance and Cost.</h1>
-            <p>Calculate Your Delivery Distances and Cost when Shipping with Mpost</p>
-            <div class="distance-panel">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="from" class="col-xs-2 control-label"><i class="far fa-dot-circle"></i></label>
-                        <div class="col-xs-4">
-                            <input type="text" id="from" placeholder="Pick Up Address" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-    
-                        <label for="to" class="col-xs-2 control-label"><i class="fas fa-map-marker-alt"></i></label>
-                        <div class="col-xs-4">
-                            <input type="text" id="to" placeholder="Delivery Address" class="form-control">
-                        </div>
-    
-                    </div>
-                </form>
-            </div>
+        <div class="row">
+            <div class="container">
+                <h1>Find The Distance and Cost.</h1>
+                <p>Calculate Your Delivery Distances and Cost when Shipping with Mpost</p>
+                <div class="distance-panel">
+                    <div class="form col-md-6" style="padding-left: 0;">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="from" class=" control-label"><i class="far fa-dot-circle"></i></label>
+                                <input type="text" id="from" placeholder="Pick Up Address" class="form-control">
+                            </div>
+                            <div class="form-group">
 
-            <div class="col-xs-offset-2 col-xs-10">
-                <button title="Distance" class="btn btn-info btn-lg " onclick="calcRoute();"><i
-                        class="fas fa-map-signs"></i></button>
+                                <label for="to" class=" control-label"><i class="fas fa-map-marker-alt"></i></label>
+                                <input type="text" id="to" placeholder="Delivery Address" class="form-control">
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="cost col-md-6">
+                        <div class="cost-card">
+                            <div class="distance-row">
+                                <label for="distance">Distance:</label>
+                                <div class="distance-value">
+                                    13.45Km
+                                </div>
+                            </div>
+
+                            <div class="distance-row">
+                                <label for="distance">Amount:</label>
+                                <div class="distance-value">
+                                    Ksh 404
+                                </div>
+                            </div>
+
+                            <div class="distance-row">
+                                <label for="distance">Rate:</label>
+                                <div class="distance-value">
+                                    Ksh 20/Km
+                                </div>
+                            </div>
+
+                            <div class="distance-row">
+                                <label for="distance">Duration:</label>
+                                <div class="distance-value">
+                                    18 mins
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="container-fluid">
+        <div class="row">
+            <div class="container">
+                <div class="buttons-distance-proceed">
+                    <button title="Get Distance" onclick="calcRoute();">Get Distance</button>
+
+                    <button title="Proceed" onclick="calcRoute();">Proceed</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="container">
             <div id="googleMap">
 
             </div>
-            <div id="output">
+            <!-- <div id="output">
 
-            </div>
+            </div> -->
         </div>
 
     </div>
@@ -55,4 +94,9 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGORjYyKEgXaFYcxzx1482WLlsVGHo9x0&libraries=places"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></scrip
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="app.js"></script>
+</body>
+
+</html>
